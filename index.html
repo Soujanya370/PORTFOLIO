@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Soujanya R N | Portfolio</title>
+  <style>
+    :root {
+      --bg-color: #0d0d0d;
+      --text-color: #ffffff;
+      --accent: #00ffff;
+      --accent-dark: #00b3b3;
+      --card-bg: #1a1a1a;
+      --form-bg: #111;
+      --button-bg: #ff6f61; /* New button color */
+  --button-hover-bg: #ff5733; /* New button hover color */
+  --heading-color: #ff5733;
+    }
+    .light-mode {
+  --bg-color: #ffffff;
+  --text-color: #111111;
+  --accent: #008080;
+  --accent-dark: #FF7043;
+  --card-bg: #f9f9f9;
+  --form-bg: #f1f1f1;
+  --button-bg: #FF6F61;
+  --button-hover-bg: #FF3D00;
+  --heading-color: #002D62;
+}
+
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      transition: all 0.4s ease;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+      color: var(--accent);
+      transition: color 0.3s ease;
+    }
+
+    .header {
+      text-align: center;
+      padding: 2rem;
+      background: linear-gradient(to right, var(--accent), var(--accent-dark));
+    }
+
+    .glow {
+      font-size: 2.5rem;
+      text-shadow: 0 0 8px var(--accent);
+    }
+
+    .highlight {
+      color: #ffffff;
+    }
+
+    .typewriter {
+      overflow: hidden;
+      white-space: nowrap;
+      animation: typing 4s steps(40, end), blink 0.75s step-end infinite;
+      border-right: 3px solid var(--accent);
+      max-width: 100%;
+      font-size: 1.2rem;
+    }
+
+    @keyframes typing {
+      from { width: 0 }
+      to { width: 100% }
+    }
+
+    @keyframes blink {
+      50% { border-color: transparent }
+    }
+
+    .toggle-theme {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: var(--accent-dark);
+      border: none;
+      padding: 0.5rem 1.2rem;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+      color: white;
+      transition:background 0.3s;
+    }
+
+    .toggle-theme:hover {
+      background: var(--accent);
+    }
+    .about {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  padding: 2rem;
+  max-width: 800px;
+  margin: 0 auto;
+  background-color: var(--card-bg);
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0, 255, 255, 0.3);
+}
+
+.profile-pic {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  border: 4px solid var(--accent);
+}
+
+.about p {
+  font-size: 1rem;
+  line-height: 1.5;
+  color: var(--text-color);
+}
+
+
+ 
+
+    .social-links a {
+      color: #ffffff;
+      margin: 0 10px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+
+    .social-links a:hover {
+      color: var(--accent);
+    }
+
+    .projects {
+      padding: 2rem;
+    }
+
+    .project-cards {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1.5rem;
+    }
+
+    .card {
+      background: var(--card-bg);
+      border: 2px solid var(--accent-dark);
+      border-radius: 12px;
+      padding: 1rem;
+      width: 300px;
+      box-shadow: 0 0 12px var(--accent-dark);
+      transition: transform 0.3s, border 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+      border-color: var(--accent);
+    }
+
+    .card button {
+      margin: 0.3rem;
+      padding: 0.5rem 1rem;
+      background-color: var(--accent-dark);
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background 0.3s;
+    }
+
+    .card button:hover {
+      background-color: var(--accent);
+    }
+
+    .project-info, .demo-image-container {
+      display: none;
+      margin-top: 1rem;
+      font-size: 0.9rem;
+    }
+
+    .demo-image-container img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+    }
+
+    .skills {
+      padding: 2rem;
+      text-align: center;
+    }
+
+    .skills-list {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .skills-list li {
+      background-color: var(--card-bg);
+      border: 2px solid var(--accent-dark);
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+      font-weight: bold;
+      transition: border 0.3s;
+    }
+
+    .skills-list li:hover {
+      border-color: var(--accent);
+    }
+
+    .contact {
+      padding: 2rem;
+      background-color: var(--form-bg);
+      display: flex;
+      justify-content: center;
+    }
+
+    .contact form {
+      background-color: var(--card-bg);
+      padding: 2rem;
+      border-radius: 12px;
+      border: 2px solid var(--accent-dark);
+      max-width: 400px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .contact input,
+    .contact textarea {
+      width: 100%;
+      padding: 0.7rem;
+      border-radius: 6px;
+      border: 1px solid var(--accent-dark);
+      background-color: transparent;
+      color: var(--text-color);
+      transition: border 0.3s;
+    }
+
+    .contact input:focus,
+    .contact textarea:focus {
+      outline: none;
+      border-color: var(--accent);
+    }
+
+    .contact button {
+      padding: 0.7rem 1.5rem;
+      background-color: var(--accent-dark);
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .contact button:hover {
+      background-color: var(--accent);
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.9rem;
+      color: #999;
+    }
+  </style>
+</head>
+
+<body>
+  <button class="toggle-theme" onclick="toggleTheme()">Toggle Mode</button>
+
+  <header class="header">
+    <h1 class="glow">Hi, I'm <span class="highlight">Soujanya R N</span></h1>
+    <p class="typewriter">Web Developer | B.Tech 3rd Year | Presidency University</p>
+    <div class="social-links">
+      <a href="https://github.com/Soujanya370" target="_blank">GitHub</a>
+    </div>
+  </header>
+
+  <section class="about">
+    <img src="images/souju.jpg" alt="Soujanya's Photo" class="profile-pic" />
+    <p>
+      I’m a 3rd year B.Tech student at Presidency University, Bangalore. I love crafting
+      sleek, responsive websites using HTML, CSS, and JavaScript. I'm passionate about
+      intuitive UIs, clean code, and continuous learning.
+    </p>
+  </section>
+  <section class="projects">
+    <h2 class="glow">My Projects</h2>
+    <div class="project-cards">
+
+        <div class="card">
+            <h3>SPORTOFY-HOMEPAGE</h3>
+            <button onclick="toggleInfo(this)">View Details</button>
+            <button class="demo-button" onclick="toggleDemo('sportofy-demo')">Demo</button>
+            <div class="project-info">
+                <p>A Spotify-inspired homepage built with HTML and CSS.</p>
+                <a href="https://github.com/Soujanya370/SPORTOFY-HOMEPAGE" target="_blank">View Code</a>
+            </div>
+            <div id="sportofy-demo" class="demo-image-container">
+                <img src="images/spotify.png" alt="Sportofy Homepage Demo">
+            </div>
+        </div>
+
+        <div class="card">
+            <h3>YOUTUBE CLONE</h3>
+            <button onclick="toggleInfo(this)">View Details</button>
+            <button class="demo-button" onclick="toggleDemo('youtube-demo')">Demo</button>
+            <div class="project-info">
+                <p>A clone of YouTube's homepage built using HTML and CSS.</p>
+                <a href="https://github.com/Soujanya370/YOUTUBE-CLONE" target="_blank">View Code</a>
+            </div>
+            <div id="youtube-demo" class="demo-image-container">
+                <img src="images/youtube-clone-output.png" alt="Youtube Clone Demo">
+            </div>
+        </div>
+
+        <div class="card">
+            <h3>RESTAURANT WEBSITE</h3>
+            <button onclick="toggleInfo(this)">View Details</button>
+            <button class="demo-button" onclick="toggleDemo('restaurant-demo')">Demo</button>
+            <div class="project-info">
+                <p>Designed a restaurant website layout using HTML and CSS.</p>
+                <a href="https://github.com/Soujanya370/RESTAURANT-WEBSITE" target="_blank">View Code</a>
+            </div>
+            <div id="restaurant-demo" class="demo-image-container">
+                <img src="images/restaurant-website-output.png" alt="Restaurant Website Demo">
+            </div>
+        </div>
+
+        <div class="card">
+            <h3>LANDING PAGE</h3>
+            <button onclick="toggleInfo(this)">View Details</button>
+            <button class="demo-button" onclick="toggleDemo('landing-demo')">Demo</button>
+            <div class="project-info">
+                <p>A visually appealing landing page created with HTML & CSS.</p>
+                <a href="https://github.com/Soujanya370/LANDING-PAGE" target="_blank">View Code</a>
+            </div>
+            <div id="landing-demo" class="demo-image-container">
+                <img src="images/landing-page-output.png" alt="Landing Page Demo">
+            </div>
+        </div>
+
+        <div class="card">
+            <h3>BLOG WEBSITE</h3>
+            <button onclick="toggleInfo(this)">View Details</button>
+            <button class="demo-button" onclick="toggleDemo('blog-demo')">Demo</button>
+            <div class="project-info">
+                <p>A static blog website layout using HTML and CSS.</p>
+                <a href="https://github.com/Soujanya370/BLOG-WEBSITE" target="_blank">View Code</a>
+            </div>
+            <div id="blog-demo" class="demo-image-container">
+                <img src="images/blog-website-output.png" alt="Blog Website Demo">
+            </div>
+        </div>
+
+        <div class="card">
+            <h3>DICE ROLL SIMULATOR</h3>
+            <button onclick="toggleInfo(this)">View Details</button>
+            <button class="demo-button" onclick="toggleDemo('dice-demo')">Demo</button>
+            <div class="project-info">
+                <p>JavaScript-based dice simulator that shows random dice images.</p>
+                <a href="https://github.com/Soujanya370/DICE-ROLL-SIMULATOR" target="_blank">View Code</a>
+            </div>
+            <div id="dice-demo" class="demo-image-container">
+                <img src="images/dice-roll-simulator-output.png" alt="Dice Roll Simulator Demo">
+            </div>
+        </div>
+
+        <div class="card">
+            <h3>STOP-WATCH</h3>
+            <button onclick="toggleInfo(this)">View Details</button>
+            <button class="demo-button" onclick="toggleDemo('calculator-demo')">Demo</button>
+            <div class="project-info">
+                <p>using HTML, CSS, and JavaScript.</p>
+                <a href="https://github.com/Soujanya370/Stop_Watch " target="_blank">View Code</a>
+            </div>
+            <div id="calculator-demo" class="demo-image-container">
+                <img src="images/Stop-Watch-output.png" alt="Stop_Watch  Demo">
+            </div>
+        </div>
+
+        <div class="card">
+            <h3>Emoji-Rating </h3>
+            <button onclick="toggleInfo(this)">View Details</button>
+            <button class="demo-button" onclick="toggleDemo('portfolio-demo')">Demo</button>
+            <div class="project-info">
+                <p>using HTML, CSS, and JavaScript</p>
+                <a href="https://github.com/Soujanya370/Emoji-Rating " target="_blank">View Code</a>
+            </div>
+            <div id="portfolio-demo" class="demo-image-container">
+                <img src="images/Emoji-Rating-output.png" alt="Emoji-Rating Demo">
+            </div>
+        </div>
+        <div class="card">
+          <h3>To-do-List</h3>
+          <button onclick="toggleInfo(this)">View Details</button>
+          <button class="demo-button" onclick="toggleDemo('todo-demo')">Demo</button>
+          <div class="project-info">
+              <p>using HTML, CSS, and JavaScript</p>
+              <a href="https://github.com/Soujanya370/To-do-List" target="_blank">View Code</a>
+          </div>
+          <div id="todo-demo" class="demo-image-container">
+              <img src="images/To-do-List-output.png" alt="To-do-List Demo">
+          </div>
+      </div>
+      
+      <div class="card">
+          <h3>Temperature-Converter</h3>
+          <button onclick="toggleInfo(this)">View Details</button>
+          <button class="demo-button" onclick="toggleDemo('temperature-demo')">Demo</button>
+          <div class="project-info">
+              <p>using HTML, CSS, and JavaScript</p>
+              <a href="https://github.com/Soujanya370/Temperature-Converter" target="_blank">View Code</a>
+          </div>
+          <div id="temperature-demo" class="demo-image-container">
+              <img src="images/Temperature_Convertor.png" alt="Temperature-Converter Demo">
+          </div>
+      </div>
+      
+    </div>
+</section>
+
+  <section class="skills">
+    <h2 class="glow">Skills</h2>
+    <ul class="skills-list">
+      <li>HTML5</li>
+      <li>CSS3</li>
+      <li>JavaScript</li>
+      <li>Bootstrap</li>
+      <li>Git & GitHub</li>
+      <li>Responsive Design</li>
+    </ul>
+  </section>
+  
+
+  <section class="contact">
+    <form onsubmit="handleSubmit(event)">
+      <h2 class="glow">Contact Me</h2>
+      <input type="text" placeholder="Your Name" required />
+      <input type="email" placeholder="Your Email" required />
+      <textarea placeholder="Your Message" required></textarea>
+      <button type="submit">Send</button>
+    </form>
+  </section>
+  <section class="contact">
+  
+    <div class="contact-info">
+        <p><strong>📞 Phone:</strong> <span id="phone">+91 9019840625</span></p>
+        <p><strong>✉️ Email:</strong> <span id="email">soujanyanadig@example.com</span></p>
+        <p><strong>📍 Location:</strong> <span id="location">Bangalore, India</span></p>
+        <div class="social-links">
+            <a href="https://www.linkedin.com/in/soujanya-nadig" target="_blank">🔗 LinkedIn</a>
+            <a href="https://github.com/Soujanya370" target="_blank">💻 GitHub</a>
+        </div>
+    </div>
+</section>
+
+  
+
+  <footer>
+    © 2025 Soujanya R N | Portfolio crafted with 💙 and code.
+  </footer>
+
+  <script>
+    function toggleTheme() {
+      document.body.classList.toggle("light-mode");
+    }
+
+    function toggleInfo(button) {
+      const card = button.parentElement;
+      const info = card.querySelector(".project-info");
+      info.style.display = info.style.display === "block" ? "none" : "block";
+    }
+
+    function toggleDemo(id) {
+      const allDemos = document.querySelectorAll(".demo-image-container");
+      allDemos.forEach(d => d.style.display = "none");
+      const demo = document.getElementById(id);
+      demo.style.display = demo.style.display === "block" ? "none" : "block";
+    }
+
+    function handleSubmit(event) {
+      event.preventDefault();
+      alert("Thank you! Your message has been sent.");
+    }
+  </script>
+</body>
+</html>
